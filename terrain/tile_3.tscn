@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://ba8oa8adiggg8"]
+
+[ext_resource type="Texture2D" uid="uid://b1xg1jolfj6u1" path="res://terrain/Stylized_Fur_002_basecolor.jpg" id="1_6n60c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_en8e7"]
+albedo_texture = ExtResource("1_6n60c")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5ohg2"]
+material = SubResource("StandardMaterial3D_en8e7")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dk6fl"]
+points = PackedVector3Array(-2.03175, -0.0817274, -2.03175, 2.03173, 0.108712, 2.03175, 2.03173, -0.0817274, 2.03175, 2.03173, 0.108712, -2.03175, -2.03175, 0.108712, 2.03175, -2.03175, -0.0817274, 2.03175, 2.03173, -0.0817274, -2.03175, -2.03175, 0.108712, -2.03175)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cagu2"]
+albedo_texture = ExtResource("1_6n60c")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_78lth"]
+material = SubResource("StandardMaterial3D_cagu2")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sn7ve"]
+points = PackedVector3Array(-2.13333, -2.03333, -0.0833333, 2.09836, 2, 0.0489071, 2.13333, 2.03333, -0.0833333, 2.13333, -2.03333, -0.0833333, -2.13333, 2.03333, -0.0833333, -2.09836, -2, 0.0489071, 2.09836, -2, 0.0489071, -2.09836, 2, 0.0489071)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6iix"]
+albedo_texture = ExtResource("1_6n60c")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kiqe8"]
+material = SubResource("StandardMaterial3D_s6iix")
+
+[node name="Tile3" type="StaticBody3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("PlaneMesh_5ohg2")
+
+[node name="Floor_CS" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_dk6fl")
+
+[node name="N" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.51894e-15, 8.74228e-08, 2, 2, -8.74228e-08, -6.97574e-16, 8.74228e-08, 2, -8.74228e-08, -0.0723839, 1.91474, -2.04604)
+mesh = SubResource("PlaneMesh_78lth")
+
+[node name="N_CS" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, -1.9)
+shape = SubResource("ConvexPolygonShape3D_sn7ve")
+
+[node name="E" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.72653e-08, -1.9964, 0.120007, 2, -8.74228e-08, -6.97574e-16, 5.24566e-09, 0.120007, 1.9964, 1.83915, 1.91815, -0.0455959)
+mesh = SubResource("PlaneMesh_kiqe8")
+
+[node name="E_CS" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.9, 1.9, 0)
+shape = SubResource("ConvexPolygonShape3D_sn7ve")

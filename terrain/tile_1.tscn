@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://38kg5nm2wsfx"]
+
+[ext_resource type="Texture2D" uid="uid://b1xg1jolfj6u1" path="res://terrain/Stylized_Fur_002_basecolor.jpg" id="1_df5s5"]
+[ext_resource type="Texture2D" uid="uid://cm021beukuxgx" path="res://terrain/drive-download-20231210T010816Z-001/download.png" id="2_llij0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwxpq"]
+albedo_texture = ExtResource("1_df5s5")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_12r3i"]
+material = SubResource("StandardMaterial3D_lwxpq")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dk6fl"]
+points = PackedVector3Array(-2.03175, -0.0817274, -2.03175, 2.03173, 0.108712, 2.03175, 2.03173, -0.0817274, 2.03175, 2.03173, 0.108712, -2.03175, -2.03175, 0.108712, 2.03175, -2.03175, -0.0817274, 2.03175, 2.03173, -0.0817274, -2.03175, -2.03175, 0.108712, -2.03175)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4am2k"]
+albedo_texture = ExtResource("2_llij0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ru0w"]
+material = SubResource("StandardMaterial3D_4am2k")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sn7ve"]
+points = PackedVector3Array(-2.13333, -2.03333, -0.0833333, 2.09836, 2, 0.0489071, 2.13333, 2.03333, -0.0833333, 2.13333, -2.03333, -0.0833333, -2.13333, 2.03333, -0.0833333, -2.09836, -2, 0.0489071, 2.09836, -2, 0.0489071, -2.09836, 2, 0.0489071)
+
+[node name="Tile1" type="StaticBody3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.99988, 0.0217115, 0, -0.0217115, 1.99988, 0, 0, 0, 2, 0.013008, 0.0105062, -0.0136461)
+mesh = SubResource("PlaneMesh_12r3i")
+
+[node name="Floor_CS" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_dk6fl")
+
+[node name="N" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.0259157, 1.48554, -1.64684)
+mesh = SubResource("QuadMesh_7ru0w")
+
+[node name="N_CS" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, -1.9)
+shape = SubResource("ConvexPolygonShape3D_sn7ve")

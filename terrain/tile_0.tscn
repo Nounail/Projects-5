@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv6hps7my35lu"]
+
+[ext_resource type="Texture2D" uid="uid://b1xg1jolfj6u1" path="res://terrain/Stylized_Fur_002_basecolor.jpg" id="1_pdbk7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scshp"]
+albedo_texture = ExtResource("1_pdbk7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g48ed"]
+material = SubResource("StandardMaterial3D_scshp")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dk6fl"]
+points = PackedVector3Array(-2.03175, -0.0817274, -2.03175, 2.03173, 0.108712, 2.03175, 2.03173, -0.0817274, 2.03175, 2.03173, 0.108712, -2.03175, -2.03175, 0.108712, 2.03175, -2.03175, -0.0817274, 2.03175, 2.03173, -0.0817274, -2.03175, -2.03175, 0.108712, -2.03175)
+
+[node name="Tile0" type="StaticBody3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("PlaneMesh_g48ed")
+
+[node name="Floor_CS" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_dk6fl")
