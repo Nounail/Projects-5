@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://5fplwvs4101d"]
+
+[ext_resource type="Script" path="res://HOWTOPOPLAy.gd" id="1_7uver"]
+[ext_resource type="Shader" path="res://HOWTOPLAY.gdshader" id="2_rn17t"]
+[ext_resource type="FontFile" uid="uid://6fbs60imlv08" path="res://Assets/knight-warrior-font/KnightWarrior-w16n8.otf" id="3_uu8un"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_20tvi"]
+shader = ExtResource("2_rn17t")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qo5rt"]
+bg_color = Color(1, 0, 0, 0.215686)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(10, 10)
+anti_aliasing_size = 6.03
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpp0a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1220"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7uver")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_20tvi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -4.0
+offset_right = -2.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.745098, 0.745098, 0.745098, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/line_spacing = 2
+theme_override_fonts/font = ExtResource("3_uu8un")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qo5rt")
+text = "HOW TO PLAY
+W- Forward
+A- Left
+S-  back
+D - left
+sprint - shift
+shoot - mouse left button
+pickup - E
+"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -142.0
+offset_right = -9.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_uu8un")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpp0a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m1220")
+text = "Continue"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
