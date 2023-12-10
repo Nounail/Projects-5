@@ -4,9 +4,11 @@ Game for MSCH C220 for Project 5
 12/10/23
 
 Description
+
 A first-person shooter game that follows Project 5 advanced feature video as a template and built upon it
 
 ## Implementation
+
 A first-person player-controlled character that can move with keyboard and mouse control
 
 Terrain for your character to navigate, including some maze
@@ -19,7 +21,7 @@ At least 3D animated enemy to impede your progress, with some AI ( Zombie Hoards
 
 Dialogue ( NPC that tells you what to do)
 
-Music and sound ( Music online from source below)
+Music and sound ( Music online from the source below)
 
 A main menu, an in-game menu, and an end-game screen 
 
