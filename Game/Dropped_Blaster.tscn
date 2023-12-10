@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7wonf6xryihb"]
+
+[ext_resource type="Script" path="res://Game/Dropped_Blaster.gd" id="1_gfvug"]
+[ext_resource type="ArrayMesh" uid="uid://b2xgu3oeyoej0" path="res://Game/shotgun.obj" id="2_3fa7c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t3eav"]
+rough = true
+bounce = 0.08
+absorbent = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gy4gp"]
+points = PackedVector3Array(-0.0464242, 0.00761905, 0.268615, 0.0654762, 0.0971429, 0.716147, 0.0654762, 0.00761905, 0.716147, -0.0688095, 0.0971429, 0.716147, 0.0430777, 0.0747444, 0.268615, -0.0688095, 0.00761905, 0.716147, 0.0430777, 0.00761905, 0.268615, -0.0464242, 0.0747444, 0.268615, 0.0654762, 0.0971429, 0.559493, -0.0688095, 0.0971429, 0.581878, 0.0654762, 0.00761905, 0.559493, -0.0688095, 0.00761905, 0.581878, -0.0464242, 0.0971429, 0.537108, 0.0430777, 0.0971429, 0.537108)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ff76m"]
+points = PackedVector3Array(-0.0464286, -0.21619, -0.179179, 0.0430952, -0.21619, -0.179179, 0.0654587, 0.119471, -0.693634, -0.0688095, 0.186654, -0.246077, -0.0688095, -0.059515, -0.71619, -0.0911905, -0.0818675, 0.201288, 0.0878571, -0.0818675, 0.201288, 0.0430952, 0.209048, 0.134198, 0.0654587, -0.0818675, -0.693634, -0.0688095, 0.119471, -0.693634, -0.0688095, 0.0970771, 0.246015, 0.0878571, 0.0523306, 0.201288, 0.0430952, -0.21619, -0.0224423, 0.0654587, 0.186654, -0.246077, -0.0464286, 0.209048, 0.134198, -0.0911905, 0.0523306, -7.88569e-05, -0.0464286, -0.171402, -0.425177, 0.0878571, -0.0818675, -7.88569e-05, -0.0464286, -0.21619, -0.0224423, 0.0654587, -0.104262, 0.201288, -0.0911905, 0.0523306, 0.201288, -0.0911905, -0.0818675, -7.88569e-05, 0.0654587, 0.0970771, 0.246015, 0.0654587, 0.0970771, -0.71619, -0.0688095, -0.0818675, -0.693634, 0.0878571, 0.0523306, -7.88569e-05, 0.0430952, -0.171402, -0.425177, -0.0688095, -0.104262, 0.201288, -0.0688095, 0.186654, 0.0222846, 0.0654587, 0.186654, 0.0222846, 0.0654587, -0.059515, -0.71619, -0.0688095, 0.0970771, -0.71619)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ah5y"]
+radius = 1.0
+
+[node name="Dropped_Blaster" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_t3eav")
+script = ExtResource("1_gfvug")
+
+[node name="blasterE2" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = ExtResource("2_3fa7c")
+skeleton = NodePath("")
+
+[node name="@CollisionShape3D@24497" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_gy4gp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_ff76m")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_4ah5y")
